@@ -1,0 +1,20 @@
+name: Version managing
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    name: Update version depending on commit
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v7
+
+      - name: update csproj files
+        uses: Tayra-Sakurai/gh-actions-cc-to-sv-csproj@v2

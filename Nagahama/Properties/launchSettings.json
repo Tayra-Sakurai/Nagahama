@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Nagahama (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Nagahama (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
