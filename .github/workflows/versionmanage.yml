@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: update csproj files
-        uses: Tayra-Sakurai/gh-actions-cc-to-sv-csproj@v2
+        uses: Tayra-Sakurai/gh-actions-cc-to-sv-csproj@v2.0.4
         with:
           path: |
             Nagahama/Nagahama.csproj
