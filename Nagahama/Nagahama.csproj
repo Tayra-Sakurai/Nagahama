@@ -64,7 +64,7 @@
     <PublishReadyToRun Condition="&apos;$(Configuration)&apos; != &apos;Debug&apos;">True</PublishReadyToRun>
     <PublishTrimmed Condition="&apos;$(Configuration)&apos; == &apos;Debug&apos;">False</PublishTrimmed>
     <PublishTrimmed Condition="&apos;$(Configuration)&apos; != &apos;Debug&apos;">True</PublishTrimmed>
-    <Version>1.0.0-alpha.3</Version>
+    <Version>1.0.0-alpha.4</Version>
     <Authors>Tayra Sakurai</Authors>
     <Description>Scheduling application especially for assignments.</Description>
     <Copyright>Copyright (C) 2026 Tayra Sakurai</Copyright>
@@ -75,7 +75,7 @@
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <DefaultLanguage>ja-JP</DefaultLanguage>
-    <AssemblyVersion>1.0.0.5</AssemblyVersion>
-    <FileVersion>1.0.0.5</FileVersion>
+    <AssemblyVersion>1.0.0.6</AssemblyVersion>
+    <FileVersion>1.0.0.6</FileVersion>
   </PropertyGroup>
 </Project>
