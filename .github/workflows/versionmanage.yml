@@ -4,10 +4,10 @@ on:
     branches:
       - master
     paths-ignore:
-      - **/*.csproj
-      - **/*.manifest
-      - **/*.appxmanifest
-      - **.md
+      - '**/*.csproj'
+      - '**/*.manifest'
+      - '**/*.appxmanifest'
+      - '**.md'
 
 permissions:
   contents: write
