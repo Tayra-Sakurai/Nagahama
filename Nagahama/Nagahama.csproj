@@ -5,10 +5,10 @@
     <TargetPlatformMinVersion>10.0.22000.0</TargetPlatformMinVersion>
     <RootNamespace>Nagahama</RootNamespace>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <ApplicationIcon Condition="Exists(&apos;Assets\AppIcon.ico&apos;)">Assets\AppIcon.ico</ApplicationIcon>
+    <ApplicationIcon Condition="Exists('Assets\AppIcon.ico')">Assets\AppIcon.ico</ApplicationIcon>
     <Platforms>x86;x64;ARM64</Platforms>
-    <RuntimeIdentifier Condition="&apos;$(RuntimeIdentifier)&apos; == &apos;&apos;">win-$([System.Runtime.InteropServices.RuntimeInformation]::ProcessArchitecture.ToString().ToLowerInvariant())</RuntimeIdentifier>
-    <PublishProfile Condition="Exists(&apos;Properties\PublishProfiles\win-$(Platform).pubxml&apos;)">win-$(Platform).pubxml</PublishProfile>
+    <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">win-$([System.Runtime.InteropServices.RuntimeInformation]::ProcessArchitecture.ToString().ToLowerInvariant())</RuntimeIdentifier>
+    <PublishProfile Condition="Exists('Properties\PublishProfiles\win-$(Platform).pubxml')">win-$(Platform).pubxml</PublishProfile>
     <UseWinUI>true</UseWinUI>
     <WinUISDKReferences>false</WinUISDKReferences>
     <EnableMsixTooling>true</EnableMsixTooling>
@@ -16,26 +16,26 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="Assets\SplashScreen.scale-200.png"/>
-    <Content Include="Assets\LockScreenLogo.scale-200.png"/>
-    <Content Include="Assets\Square150x150Logo.scale-200.png"/>
-    <Content Include="Assets\Square44x44Logo.scale-200.png"/>
-    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png"/>
-    <Content Include="Assets\Square44x44Logo.targetsize-48_altform-lightunplated.png"/>
-    <Content Include="Assets\StoreLogo.png"/>
-    <Content Include="Assets\AppIcon.ico"/>
-    <Content Include="Assets\Wide310x150Logo.scale-200.png"/>
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-48_altform-lightunplated.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\AppIcon.ico" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
-    <Manifest Include="$(ApplicationManifest)"/>
+    <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
   <!--
     Defining the "Msix" ProjectCapability here allows the Single-project MSIX Packaging
     Tools extension to be activated for this project even if the Windows App SDK Nuget
     package has not yet been restored.
   -->
-  <ItemGroup Condition="&apos;$(DisableMsixProjectCapabilityAddedByProject)&apos;!=&apos;true&apos; and &apos;$(EnableMsixTooling)&apos;==&apos;true&apos;">
-    <ProjectCapability Include="Msix"/>
+  <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
+    <ProjectCapability Include="Msix" />
   </ItemGroup>
   <!--
     Microsoft.Windows.SDK.BuildTools.WinApp adds first-class support for
@@ -46,24 +46,28 @@
     <PropertyGroup> above to opt out.
   -->
   <ItemGroup>
-    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.29648.1000-preview"/>
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.6.6-experimental"/>
-    <PackageReference Include="Microsoft.Windows.SDK.BuildTools.WinApp" Version="0.8.0"/>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+    <PackageReference Include="CommunityToolkit.WinUI.Controls.SettingsControls" Version="8.2.251219" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="11.0.0" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.29648.1000-preview" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.6.6-experimental" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools.WinApp" Version="0.8.0" />
   </ItemGroup>
   <!--
     Defining the "HasPackageAndPublishMenuAddedByProject" property here allows the Solution
     Explorer "Package and Publish" context menu entry to be enabled for this project even if
     the Windows App SDK Nuget package has not yet been restored.
   -->
-  <PropertyGroup Condition="&apos;$(DisableHasPackageAndPublishMenuAddedByProject)&apos;!=&apos;true&apos; and &apos;$(EnableMsixTooling)&apos;==&apos;true&apos;">
+  <PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
   </PropertyGroup>
   <!-- Publish Properties -->
   <PropertyGroup>
-    <PublishReadyToRun Condition="&apos;$(Configuration)&apos; == &apos;Debug&apos;">False</PublishReadyToRun>
-    <PublishReadyToRun Condition="&apos;$(Configuration)&apos; != &apos;Debug&apos;">True</PublishReadyToRun>
-    <PublishTrimmed Condition="&apos;$(Configuration)&apos; == &apos;Debug&apos;">False</PublishTrimmed>
-    <PublishTrimmed Condition="&apos;$(Configuration)&apos; != &apos;Debug&apos;">True</PublishTrimmed>
+    <PublishReadyToRun Condition="'$(Configuration)' == 'Debug'">False</PublishReadyToRun>
+    <PublishReadyToRun Condition="'$(Configuration)' != 'Debug'">True</PublishReadyToRun>
+    <PublishTrimmed Condition="'$(Configuration)' == 'Debug'">False</PublishTrimmed>
+    <PublishTrimmed Condition="'$(Configuration)' != 'Debug'">True</PublishTrimmed>
     <Version>1.0.0-alpha.5</Version>
     <Authors>Tayra Sakurai</Authors>
     <Description>Scheduling application especially for assignments.</Description>
